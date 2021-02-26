@@ -1,14 +1,15 @@
 <template>
   <div>
-    <home/>
+    <homebar/>
+    1111
   </div>
 </template>
 <script>
-import home from 'views/home'
+import homebar from 'components/homebar'
 export default {
-  name: 'app',
-  components: {
-    home
+  name: '',
+  components:{
+    homebar
   }
 }
 </script>
