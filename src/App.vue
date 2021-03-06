@@ -12,6 +12,18 @@ export default {
   }
 }
 </script>
-<style scoped>
-  
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  li {
+    list-style: none;
+    color: white;
+  }
 </style>

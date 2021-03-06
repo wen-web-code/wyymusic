@@ -1,8 +1,40 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+const recommend = () => import('views/recommend')
+const rankingList = () => import('views/rankingList')
+const songSheet = () => import('views/songSheet')
+const anchorStation = () => import('views/anchorStation')
+const singer = () => import('views/singer')
+const newSong = () => import('views/newSong')
 
 const routes = [
-  
+  {
+    path: '/',
+    redirect: '/home/recommend'
+  },
+  {
+    path: '/home/recommend',
+    component: recommend
+  },
+  {
+    path: '/home/rankingList',
+    component: rankingList
+  },
+  {
+    path: '/home/songSheet',
+    component: songSheet
+  },
+  {
+    path: '/home/anchorStation',
+    component: anchorStation
+  },
+  {
+    path: '/home/singer',
+    component: singer
+  },
+  {
+    path: '/home/newSong',
+    component: newSong
+  }
 ]
 
 const router = createRouter({

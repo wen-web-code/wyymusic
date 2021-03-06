@@ -1,18 +1,25 @@
 <template>
   <div>
-    <homebar/>
-    1111
+    <navbar></navbar>
+    <homenav></homenav>
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import homebar from 'components/homebar'
+import homenav from 'components/homenav'
+import navbar from 'components/navbar'
+
 export default {
   name: '',
   components:{
-    homebar
+    homenav,
+    navbar
   }
 }
 </script>
 <style scoped>
-  
+  * {
+    padding: 0;
+    margin: 0;
+  }
 </style>
