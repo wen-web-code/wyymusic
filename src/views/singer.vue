@@ -1,5 +1,5 @@
 <template>
-  <div>55</div>
+  <div>{{$route.params.userId}}</div>
 </template>
 <script>
 export default {

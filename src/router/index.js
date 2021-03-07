@@ -28,7 +28,7 @@ const routes = [
     component: anchorStation
   },
   {
-    path: '/home/singer',
+    path: '/home/singer/:userId',
     component: singer
   },
   {

@@ -10,3 +10,8 @@ export function gethomeSongSheet() {
     url: '/top/playlist/highquality?before=1503639064232&limit=10',//热门歌单
   })
 }
+export function gethomeNewSong() {
+  return request({
+    url: '/personalized/newsong',//热门歌单
+  })
+}

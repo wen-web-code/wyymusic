@@ -12,7 +12,7 @@
             <el-menu-item index="/home/rankingList">排行榜</el-menu-item>
             <el-menu-item index="/home/songSheet">歌单</el-menu-item>
             <el-menu-item index="/home/anchorStation">主播电台</el-menu-item>
-            <el-menu-item index="/home/singer">歌手</el-menu-item>
+            <el-menu-item :index="'/home/singer/'+ userId">歌手</el-menu-item>
             <el-menu-item index="/home/newSong">新碟上架</el-menu-item>
         </el-menu>
       </el-col>
@@ -21,7 +21,12 @@
 </template>
 <script>
 export default {
-  name: ''
+  name: '',
+  data() {
+    return {
+      userId: "zhangsan"
+    }
+  }
 }
 </script>
 <style scoped>

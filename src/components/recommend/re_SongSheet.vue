@@ -1,16 +1,36 @@
 <template>
-  <div class="songsheet">
-    <!-- <div v-for="item in SongSheetData" :key="item" class="songitem">
-      <span>{{item.copywriter}}</span>
-      <img :src="item.coverImgUrl" alt="">
-    </div> -->
-    <div v-for="item in SongSheetData" :key="item" class="songitem">
-      <el-card class="item" :body-style="{ padding: '0px' }">
-        <img :src="item.coverImgUrl" class="image">
-        <div style="padding: 14px;" class="itemcontext">
-          <span>{{item.copywriter}}</span>
-        </div>
-      </el-card>
+  <div class="songbox" style="margin-top:30px">
+    <div class="songsheetnav">
+      <a class="songtitle">热门推荐</a>
+      <div class="tab">
+        <a href="">华语</a>
+        <span class="line">|</span>
+        <a href="">流行</a>
+        <span class="line">|</span>
+        <a href="">摇滚</a>
+        <span class="line">|</span>
+        <a href="">民谣</a>
+        <span class="line">|</span>
+        <a href="">电子</a>
+      </div>
+      <div class="more">
+        <a href="#">更多</a>
+      </div>
+    </div>
+    <div class="songsheet">
+      <div v-for="item in SongSheetData" :key="item" class="songitem">
+        <el-card class="item" :body-style="{ padding: '0px' }">
+          <div class="imgbox"  >
+            <img :src="item.coverImgUrl" class="image">
+            <div class="bottom" >
+              <span class="iconfont icon-bofang"></span>
+            </div>
+          </div>
+          <div style="padding: 14px;" class="itemcontext">
+            <span class="itemtxt">{{item.copywriter}}</span>
+          </div>
+        </el-card>
+      </div>
     </div>
   </div>
 </template>
@@ -29,7 +49,7 @@ export default {
   methods: {
     getSongSheetdata() {
       return gethomeSongSheet().then(res => {
-        // console.log(res.playlists);
+        console.log(res.playlists);
         this.SongSheetData = res.playlists
       })
     }
@@ -37,6 +57,40 @@ export default {
 }
 </script>
 <style scoped>
+.songsheetnav {
+  width: 1200px;
+  border-bottom: 2px solid red;
+  padding-bottom: 2px;
+  margin: auto;
+  display: flex;
+  position: relative;
+}
+.songsheetnav .songtitle {
+  font-size: 24px;
+  color: black;
+}
+.tab {
+  margin-left: 40px;
+  position: absolute;
+  left: 80px;
+  bottom: 0;
+}
+.tab a{
+  color: black;
+}
+.line {
+  margin: 0 10px;
+  font-size: 10px;
+}
+.more {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 20px;
+}
+.more a{
+  color: black;
+}
 .songsheet {
   display: flex;
   width: 1200px;
@@ -54,8 +108,35 @@ export default {
     width: 220px;
     height: 220px;
   }
-  .songitem span {
-    width: 220px;
+  .imgbox {
+    position: relative;
+  }
+  .bottom {
+    display: none;
+    width: 100%;
+    height: 98%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    
+  }
+  .bottom span {
+    color: rgba(255, 255, 255, .7);
+    font-size: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .imgbox:hover .bottom {
+    display: block;
+    
+  }
+  .songitem .itemtxt {
+    width: 200px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
