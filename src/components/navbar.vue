@@ -1,7 +1,8 @@
 <template>
   <div class="navbar">
     <div class="context">
-      <el-col :span="18" :offset="3">
+      <!-- <el-col :span="18" :offset="3"> -->
+        <div class="nav">
         <span class="logo">网易云音乐</span>
         <el-menu 
         default-active="1" 
@@ -21,7 +22,8 @@
         <el-input class="navinput" size="small" v-model="input" placeholder="音乐/商品/电台/用户"></el-input>
         <el-button round size="small">创作者中心</el-button>
         <a href="#" >登录</a>
-      </el-col>
+        </div>
+      <!-- </el-col> -->
     </div>
   </div>
 </template>
@@ -31,9 +33,16 @@ export default {
 }
 </script>
 <style scoped>
+.navbar {
+  width: 100%;
+}
   .context {
     background-color: #242424;
     height: 66px;
+  }
+  .nav {
+    width: 1200px;
+    margin: auto;
   }
   .logo {
     float: left;

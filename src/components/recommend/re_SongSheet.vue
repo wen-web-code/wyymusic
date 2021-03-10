@@ -1,7 +1,7 @@
 <template>
   <div class="songbox" style="margin-top:30px">
-    <div class="songsheetnav">
-      <a class="songtitle">热门推荐</a>
+    <div class="nav">
+      <a class="title">热门推荐</a>
       <div class="tab">
         <a href="">华语</a>
         <span class="line">|</span>
@@ -14,7 +14,7 @@
         <a href="">电子</a>
       </div>
       <div class="more">
-        <a href="#">更多</a>
+        <a href="#">更多></a>
       </div>
     </div>
     <div class="songsheet">
@@ -23,7 +23,10 @@
           <div class="imgbox"  >
             <img :src="item.coverImgUrl" class="image">
             <div class="bottom" >
-              <span class="iconfont icon-bofang"></span>
+              <div class="bottom-box">
+                <span class="iconfont icon-bofang"></span>
+                <p>{{item.playCount >= 10000 ? (item.playCount/10000).toFixed(0)+'万' : item.playCount}}</p>
+              </div>
             </div>
           </div>
           <div style="padding: 14px;" class="itemcontext">
@@ -49,7 +52,7 @@ export default {
   methods: {
     getSongSheetdata() {
       return gethomeSongSheet().then(res => {
-        console.log(res.playlists);
+        // console.log(res.playlists);
         this.SongSheetData = res.playlists
       })
     }
@@ -57,15 +60,15 @@ export default {
 }
 </script>
 <style scoped>
-.songsheetnav {
+.nav {
   width: 1200px;
   border-bottom: 2px solid red;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
   margin: auto;
   display: flex;
   position: relative;
 }
-.songsheetnav .songtitle {
+.nav .title {
   font-size: 24px;
   color: black;
 }
@@ -73,7 +76,7 @@ export default {
   margin-left: 40px;
   position: absolute;
   left: 80px;
-  bottom: 0;
+  bottom: 5px;
 }
 .tab a{
   color: black;
@@ -85,7 +88,7 @@ export default {
 .more {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 5px;
   margin-right: 20px;
 }
 .more a{
@@ -123,13 +126,19 @@ export default {
     background-color: rgba(0, 0, 0, .3);
     
   }
-  .bottom span {
-    color: rgba(255, 255, 255, .7);
-    font-size: 50px;
+  .bottom-box {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+  }
+  .bottom span {
+    color: rgba(255, 255, 255, .7);
+    font-size: 50px;
+    
+  }
+  .bottom p {
+    color:red;
   }
   .imgbox:hover .bottom {
     display: block;

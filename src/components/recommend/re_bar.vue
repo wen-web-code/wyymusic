@@ -1,9 +1,9 @@
 <template>
   <div class="homebar">
     
-      <el-carousel style="width:90%;margin:auto"  type="card" height="300px">
-        <el-carousel-item v-for="(item) in bardata" :key="item" >
-          <img class="barimg medium" :src="item.imageUrl" alt="">
+      <el-carousel style="width:90%;margin:auto"  type="card" height="300px" initial-index=2>
+        <el-carousel-item v-for="item in bardata" :key="item" >
+          <el-image class="barimg medium" :src="item.imageUrl" alt=""></el-image>
         </el-carousel-item>
       </el-carousel>
       
@@ -18,14 +18,14 @@ export default {
       bardata: []
     }
   },
-  mounted() {//03085652
+  created() {//03085652
     this.getdata()
   },
   methods:{
-    getdata(){
-      return gethomebar().then(res => {
+    async getdata(){
+      return await gethomebar().then(res => {
         this.bardata = res.banners
-        console.log(this.bardata);
+        // console.log(this.bardata);
       })
       
     }
