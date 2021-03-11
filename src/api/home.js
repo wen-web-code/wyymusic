@@ -12,14 +12,24 @@ export function gethomeSongSheet() {
 }
 export function gethomeNewSong() {
   return request({
-    // url: '/personalized/newsong',//热门歌单
-    url: '/album/list?limit=12'
+    url: '/album/list?limit=12'//新碟上架
   })
 }
 
-export function gettoplist() {
+export function gettoplist(limit = 12) {
   return request({
-    // url: '/personalized/newsong',//热门歌单
-    url: '/toplist/list?limit=12'
+    url: '/toplist/list',//
+    params: {
+      limit
+    }
+  })
+}
+
+export function gettoplistsong(listId) {
+  return request({
+    url: '/top/list',//
+    params: {
+      id: listId
+    }
   })
 }

@@ -34,7 +34,7 @@ export default {
     this.getnewsongdata()
   },
   mounted(){
-    this.removeitem()
+    // this.removeitem()
 	},
   methods: {
     async getnewsongdata () {
