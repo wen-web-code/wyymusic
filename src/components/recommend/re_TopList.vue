@@ -23,8 +23,11 @@
             </div>
           </div>
           <div v-for="(data,index) in item.playlist.tracks.slice(0, 11)" :key="data" class="text item">
-            <span >{{index + 1}}</span>
+            <span :class="[index<3?num:'']">{{index + 1}}</span>
             <a href="#">{{data.name}}</a>
+          </div>
+          <div class="bottom">
+            <a href="#">查看全部></a>
           </div>
         </el-card>
       </div>
@@ -39,6 +42,8 @@ export default {
   data() {
     return {
       toplistdata: [],
+      // isactive: false
+      
     }
   },
   created() {
@@ -50,8 +55,10 @@ export default {
       for (let item of list.slice(0, 4)) {
         this.toplistdata.push(await gettoplistsong(item.id))
       }
-      console.log(this.toplistdata);
+      // console.log(this.toplistdata);
     },
+  },
+  computed: {
   }
 }
 </script>
@@ -129,16 +136,36 @@ color: blue;
   color: rgba(0,0,0,.5);
   padding: 10px;
 }
+.title .icon .iconfont:hover {
+  color: rgb(177, 32, 32);
+}
 .text {
-  height: 30px;
-  margin-top: 10px;
+  height: 40px;
+  /* margin-top: 10px; */
 }
 .text a{
   color: black;
   padding-left: 10px;
+  line-height: 40px;
 }
 .text a:hover {
   text-decoration: red underline;
   color: red;
+}
+.text .num {
+  color: red;
+  
+}
+.item:nth-child(2n) {
+  background-color: rgba(141, 134, 134, 0.1);
+}
+.bottom {
+  border-top: rgba(0,0,0,.1) solid 1px;
+  margin: 10px 0;
+  height: 20px;
+}
+.bottom a {
+  float: right;
+  padding: 10px 20px 0 0;
 }
 </style>

@@ -6,6 +6,8 @@ const anchorStation = () => import('views/anchorStation')
 const singer = () => import('views/singer')
 const newSong = () => import('views/newSong')
 
+const rl_listvalue = () => import('components/rankinglist/rl_listvalue')
+
 const routes = [
   {
     path: '/',
@@ -17,7 +19,13 @@ const routes = [
   },
   {
     path: '/home/rankingList',
-    component: rankingList
+    component: rankingList,
+    children: [
+      {
+        path: '/home/rankingList/:id',
+        component: rl_listvalue
+      }
+    ]
   },
   {
     path: '/home/songSheet',

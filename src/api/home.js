@@ -22,7 +22,7 @@ export function gettoplist(limit = 12) {
     params: {
       limit
     }
-  })
+  }) 
 }
 
 export function gettoplistsong(listId) {
