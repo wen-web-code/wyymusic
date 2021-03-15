@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="context">
       <!-- <el-col :span="18" :offset="3"> -->
-        <div class="nav">
+      <div class="nav">
         <span class="logo">网易云音乐</span>
         <el-menu 
         default-active="1" 

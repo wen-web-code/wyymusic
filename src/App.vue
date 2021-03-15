@@ -24,7 +24,7 @@ export default {
   }
   li {
     list-style: none;
-    color: white;
+    color: black;
   }
   body {
     background-color: #f5f5f5;

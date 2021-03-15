@@ -1,12 +1,16 @@
 <template>
   <div class="homebar">
     
-      <el-carousel style="width:90%;margin:auto"  type="card" height="300px" initial-index=2>
+      <!-- <el-carousel style="width:90%;margin:auto"  type="card" height="300px" initial-index="1">
         <el-carousel-item v-for="item in bardata" :key="item" >
           <el-image class="barimg medium" :src="item.imageUrl" alt=""></el-image>
         </el-carousel-item>
+      </el-carousel> -->
+      <el-carousel  :interval="4000" type="card" height="300px" initial-index="1">
+        <el-carousel-item v-for="item in bardata" :key="item">
+          <el-image class="barimg medium" :src="item.imageUrl" alt=""></el-image>
+        </el-carousel-item>
       </el-carousel>
-      
   </div>
 </template>
 <script>

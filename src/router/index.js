@@ -7,6 +7,7 @@ const singer = () => import('views/singer')
 const newSong = () => import('views/newSong')
 
 const rl_listvalue = () => import('components/rankinglist/rl_listvalue')
+const ss_songitem = () => import('components/songsheet/ss_songitem')
 
 const routes = [
   {
@@ -22,6 +23,10 @@ const routes = [
     component: rankingList,
     children: [
       {
+        path: '',
+        redirect: '/home/rankingList/:id'
+      },
+      {
         path: '/home/rankingList/:id',
         component: rl_listvalue
       }
@@ -29,7 +34,13 @@ const routes = [
   },
   {
     path: '/home/songSheet',
-    component: songSheet
+    component: songSheet,
+    children: [
+      {
+        path:'',
+        component: ss_songitem
+      }
+    ]
   },
   {
     path: '/home/anchorStation',

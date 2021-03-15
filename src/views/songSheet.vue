@@ -1,9 +1,15 @@
 <template>
-  <div>666</div>
+  <div>
+    <songsheet></songsheet>
+  </div>
 </template>
 <script>
+import songsheet from 'components/songsheet/ss_songsheet'
 export default {
-  name: ''
+  name: '',
+  components: {
+    songsheet
+  }
 }
 </script>
 <style scoped>

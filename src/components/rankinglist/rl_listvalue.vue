@@ -6,7 +6,7 @@
         <div>
           <p>{{$store.state.songdata.name}}</p>
         </div>
-        <div>最近更新：月日（）</div>
+        <div>最近更新：{{getDay}}</div>
         <div>
           <el-button  type="primary" size="small" icon="el-icon-video-play" >播放</el-button>
           <el-button size="small" icon="el-icon-position">{{$store.state.songdata.shareCount}}</el-button>
@@ -39,11 +39,12 @@
           </el-table-column>
           
           <el-table-column width="40">
-            <i class="el-icon-video-play"></i>
+            <i class="el-icon-video-play icom"></i>
           </el-table-column>
           <el-table-column
             prop="name"
-            label="标题"
+            label="歌名"
+            width="300"
           >
           </el-table-column>
           <el-table-column
@@ -72,6 +73,12 @@ export default {
   computed: {
     forname(row) {
       return row.name
+    },
+    getDay() {
+      let data = new Date();
+      const month = data.getMonth() + 1
+      const day = data.getDate()
+      return `${month}月${day}日`
     }
   },
   methods: {
@@ -131,5 +138,8 @@ export default {
 .play {
   color: red;
   font-size: 12px;
+}
+.icom {
+  cursor: pointer;
 }
 </style>

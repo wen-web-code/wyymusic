@@ -65,7 +65,7 @@ export default {
     
   }
   .box {
-    width: 1200px;
+    width: 1100px;
     margin: auto;
     margin-top: 20px;
     display: flex;
@@ -77,11 +77,11 @@ export default {
     padding: 0 10px;
   }
   .right {
-    /* float: right; */
     height: 100px;
     /* border: 1px solid red; */
     width: 500px;
-    margin-left: 60px;
+    margin-left: 70px;
+    /* float: right; */
   }
   .right ul {
     margin-top: 20px;

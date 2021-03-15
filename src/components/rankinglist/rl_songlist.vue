@@ -1,6 +1,7 @@
 <template>
   <div class="box">
       <el-menu
+      default-active="/home/rankingList/19723756"
         class="el-menu-vertical-demo"
         @open="handleOpen"
         router="true"
@@ -28,6 +29,7 @@
           v-for="item in $store.state.data.slice(4)" 
           :key="item"
           :index="'/home/rankingList/'+item.id "
+          @click="getitemid(item.id)"
           >
             <img :src="item.coverImgUrl" alt="">
             <div class="itemtxt">
@@ -49,6 +51,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getrlsonglist')
+    this.getitemid('19723756')
   },
   methods: {
     getitemid(id) {
