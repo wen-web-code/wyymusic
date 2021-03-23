@@ -18,7 +18,7 @@ export default {
     margin: 0;
   }
   a {
-    color: white;
+    color: black;
     font-size: 14px;
     text-decoration: none;
   }

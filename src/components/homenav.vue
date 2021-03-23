@@ -46,10 +46,10 @@ export default {
   
   .el-menu--horizontal>.el-menu-item.is-active {
     border-bottom: none;
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 30px;
     padding: 1px 10px;
-    
-    color: white;
+    color: black;
   }
 
   .el-menu--horizontal>.el-menu-item {

@@ -1,6 +1,8 @@
 import { createStore } from 'vuex'
 import {getrlsonglist, gettoplistsong} from 'api/rankinglist'
 import {getplaylisttype, gethighquality} from 'api/songsheet'
+import {getdjcatelist,getpgrecommend, getdjtoplist, getdjrecommend} from 'api/anchorstation'
+import {getalbumlist} from 'api/newsong'
 
 export default createStore({
   state: {
@@ -9,7 +11,13 @@ export default createStore({
     song: [],
     id: 0,
     playlisttype:[],
-    highqualitydata: []
+    highqualitydata: [],
+    catelistdata: [],
+    pgrecommenddata:[],
+    djtoplistdata: [],
+    djrecommenddata:[],
+    albumlistdata: [],
+
   },
   mutations: {
     getrlSongLists(state, param) {
@@ -30,10 +38,36 @@ export default createStore({
       });
       // console.log(param.sub);
     },
+    //歌单选项卡
+    getcatelist(state, param) {
+      state.catelistdata = param
+    },
     //获取歌单内容信息
     gethqdata(state, param) {
       state.highqualitydata = param.playlists
-      console.log(param);
+      // console.log(param);
+    },
+    //获取电台推荐节目
+    getpgdata(state, param) {
+      state.pgrecommenddata = param.programs
+      // console.log(param);
+    },
+    //获取节目排行榜
+    getdtlist(state, param) {
+      let {toplist} = param
+      state.djtoplistdata = toplist
+      // console.log(toplist);
+    },
+    //获取不同类型电台的数据
+    getrecommend(state, param) {
+      state.djrecommenddata = param.djRadios
+      // console.log(param);
+    },
+    //获取热门新碟
+    getalbumlistdata(state, param) {
+      state.albumlistdata = param.products
+      // console.log(param.products);
+      
     },
     setid(state, itemid) {
       state.id = itemid
@@ -51,6 +85,21 @@ export default createStore({
     },
     async gethighquality({commit}, {before, limit}) {
       commit('gethqdata', await gethighquality({before, limit}))
+    },
+    async getdjcatelist({commit}) {
+      commit('getcatelist', await getdjcatelist())
+    },
+    async getpgrecommend({commit}) {
+      commit('getpgdata', await getpgrecommend())
+    },
+    async getdjtoplist({commit}, limit) {
+      commit('getdtlist', await getdjtoplist(limit))
+    },
+    async getdjrecommend({commit}, {type, limit}) {
+      commit('getrecommend', await getdjrecommend({type, limit}))
+    },
+    async getalbumlist({commit}, limit) {
+      commit('getalbumlistdata', await getalbumlist(limit))
     }
   },
   modules: {
